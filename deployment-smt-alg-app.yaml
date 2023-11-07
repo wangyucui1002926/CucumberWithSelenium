@@ -1,0 +1,225 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: smt-alg-app
+  namespace: fcsbost
+  uid: f57e1d59-dba1-48b0-9b6b-78876b45b6be
+  resourceVersion: '20364095'
+  generation: 161
+  creationTimestamp: '2023-09-21T06:33:48Z'
+  labels:
+    app: smt-alg-app
+    k8slens-edit-resource-version: v1
+  annotations:
+    deployment.kubernetes.io/revision: '153'
+    kubectl.kubernetes.io/last-applied-configuration: >
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"smt-alg-app"},"name":"smt-alg-app","namespace":"fcsbost"},"spec":{"replicas":6,"selector":{"matchLabels":{"app":"smt-alg-app"}},"strategy":{"type":"Recreate"},"template":{"metadata":{"labels":{"app":"smt-alg-app"}},"spec":{"containers":[{"env":[{"name":"POD_NAME","valueFrom":{"fieldRef":{"apiVersion":"v1","fieldPath":"metadata.name"}}}],"envFrom":[{"configMapRef":{"name":"smt-alg-app-config"}}],"image":"cn3cndoaacrqasbos01.azurecr.cn/sa-apac-repo-pd-fcsbost-smt_alg_app/alg-app:pre.407","imagePullPolicy":"Always","name":"smt-alg-app-springboot","ports":[{"containerPort":8099,"name":"http","protocol":"TCP"}],"resources":{"limits":{"cpu":"3.5","memory":"5Gi"},"requests":{"cpu":"3","memory":"5Gi"}},"volumeMounts":[{"mountPath":"/usr/local/api/logs","name":"logs-storage","subPathExpr":"$(POD_NAME)"}]}],"imagePullSecrets":[{"name":"containerregistry"}],"volumes":[{"name":"logs-storage","persistentVolumeClaim":{"claimName":"smt-alg-logs-fileshare-pvc"}}]}}}}
+  managedFields:
+    - manager: node-fetch
+      operation: Update
+      apiVersion: apps/v1
+      time: '2023-10-16T03:19:40Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:labels:
+            f:k8slens-edit-resource-version: {}
+        f:spec:
+          f:template:
+            f:spec:
+              f:volumes:
+                k:{"name":"logs-storage"}:
+                  f:persistentVolumeClaim:
+                    f:claimName: {}
+    - manager: kubectl-client-side-apply
+      operation: Update
+      apiVersion: apps/v1
+      time: '2023-10-27T10:57:59Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            .: {}
+            f:kubectl.kubernetes.io/last-applied-configuration: {}
+          f:labels:
+            .: {}
+            f:app: {}
+        f:spec:
+          f:progressDeadlineSeconds: {}
+          f:replicas: {}
+          f:revisionHistoryLimit: {}
+          f:selector: {}
+          f:strategy:
+            f:type: {}
+          f:template:
+            f:metadata:
+              f:labels:
+                .: {}
+                f:app: {}
+            f:spec:
+              f:containers:
+                k:{"name":"smt-alg-app-springboot"}:
+                  .: {}
+                  f:env:
+                    .: {}
+                    k:{"name":"POD_NAME"}:
+                      .: {}
+                      f:name: {}
+                      f:valueFrom:
+                        .: {}
+                        f:fieldRef: {}
+                  f:envFrom: {}
+                  f:image: {}
+                  f:imagePullPolicy: {}
+                  f:name: {}
+                  f:ports:
+                    .: {}
+                    k:{"containerPort":8099,"protocol":"TCP"}:
+                      .: {}
+                      f:containerPort: {}
+                      f:name: {}
+                      f:protocol: {}
+                  f:resources:
+                    .: {}
+                    f:limits:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                    f:requests:
+                      .: {}
+                      f:cpu: {}
+                      f:memory: {}
+                  f:terminationMessagePath: {}
+                  f:terminationMessagePolicy: {}
+                  f:volumeMounts:
+                    .: {}
+                    k:{"mountPath":"/usr/local/api/logs"}:
+                      .: {}
+                      f:mountPath: {}
+                      f:name: {}
+                      f:subPathExpr: {}
+              f:dnsPolicy: {}
+              f:imagePullSecrets:
+                .: {}
+                k:{"name":"containerregistry"}: {}
+              f:restartPolicy: {}
+              f:schedulerName: {}
+              f:securityContext: {}
+              f:terminationGracePeriodSeconds: {}
+              f:volumes:
+                .: {}
+                k:{"name":"logs-storage"}:
+                  .: {}
+                  f:name: {}
+                  f:persistentVolumeClaim: {}
+    - manager: kube-controller-manager
+      operation: Update
+      apiVersion: apps/v1
+      time: '2023-11-01T10:09:00Z'
+      fieldsType: FieldsV1
+      fieldsV1:
+        f:metadata:
+          f:annotations:
+            f:deployment.kubernetes.io/revision: {}
+        f:status:
+          f:availableReplicas: {}
+          f:conditions:
+            .: {}
+            k:{"type":"Available"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+            k:{"type":"Progressing"}:
+              .: {}
+              f:lastTransitionTime: {}
+              f:lastUpdateTime: {}
+              f:message: {}
+              f:reason: {}
+              f:status: {}
+              f:type: {}
+          f:observedGeneration: {}
+          f:readyReplicas: {}
+          f:replicas: {}
+          f:updatedReplicas: {}
+      subresource: status
+  selfLink: /apis/apps/v1/namespaces/fcsbost/deployments/smt-alg-app
+status:
+  observedGeneration: 161
+  replicas: 6
+  updatedReplicas: 6
+  readyReplicas: 6
+  availableReplicas: 6
+  conditions:
+    - type: Progressing
+      status: 'True'
+      lastUpdateTime: '2023-10-27T10:58:24Z'
+      lastTransitionTime: '2023-10-27T04:08:40Z'
+      reason: NewReplicaSetAvailable
+      message: ReplicaSet "smt-alg-app-d7db49c67" has successfully progressed.
+    - type: Available
+      status: 'True'
+      lastUpdateTime: '2023-11-01T10:09:00Z'
+      lastTransitionTime: '2023-11-01T10:09:00Z'
+      reason: MinimumReplicasAvailable
+      message: Deployment has minimum availability.
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: smt-alg-app
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: smt-alg-app
+    spec:
+      volumes:
+        - name: logs-storage
+          persistentVolumeClaim:
+            claimName: smt-alg-logs-fileshare-pvc
+      containers:
+        - name: smt-alg-app-springboot
+          image: >-
+            cn3cndoaacrqasbos01.azurecr.cn/sa-apac-repo-pd-fcsbost-smt_alg_app/alg-app:pre.407
+          ports:
+            - name: http
+              containerPort: 8099
+              protocol: TCP
+          envFrom:
+            - configMapRef:
+                name: smt-alg-app-config
+          env:
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  apiVersion: v1
+                  fieldPath: metadata.name
+          resources:
+            limits:
+              cpu: 3500m
+              memory: 5Gi
+            requests:
+              cpu: '3'
+              memory: 5Gi
+          volumeMounts:
+            - name: logs-storage
+              mountPath: /usr/local/api/logs
+              subPathExpr: $(POD_NAME)
+          terminationMessagePath: /dev/termination-log
+          terminationMessagePolicy: File
+          imagePullPolicy: Always
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      dnsPolicy: ClusterFirst
+      securityContext: {}
+      imagePullSecrets:
+        - name: containerregistry
+      schedulerName: default-scheduler
+  strategy:
+    type: Recreate
+  revisionHistoryLimit: 10
+  progressDeadlineSeconds: 600
