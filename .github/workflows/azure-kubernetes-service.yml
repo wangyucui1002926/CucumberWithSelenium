@@ -52,7 +52,7 @@ jobs:
       - uses: actions/checkout@v3
       - run: |
           az cloud set --name AzureChinaCloud
-      - uses: azure/login@v1
+      - uses: azure/login@v1.4.6
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           environment: AzureChinaCloud
