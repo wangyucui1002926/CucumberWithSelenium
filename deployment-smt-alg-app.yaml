@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: smt-alg-app
-  namespace: fcsbost
+  namespace: default
   uid: f57e1d59-dba1-48b0-9b6b-78876b45b6be
   resourceVersion: '20364095'
   generation: 161
