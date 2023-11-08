@@ -50,7 +50,8 @@ jobs:
     steps:
       # Checks out the repository this file is in
       - uses: actions/checkout@v3
-
+      - run: |
+          az cloud set --name AzureChinaCloud
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
